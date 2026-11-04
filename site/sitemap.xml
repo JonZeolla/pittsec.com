@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://pittsec.com/welcome</loc>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <lastmod>2018-11-16</lastmod>
+    <image:image>
+      <image:loc>https://images.squarespace-cdn.com/content/v1/5bcf212b0b77bdd12cbcbcbf/1540314734032-UOMXMQ16VV8LFHLKDI8Z/bandwidth-close-up-computer-1148820.jpg</image:loc>
+      <image:title>Welcome</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://pittsec.com/events</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2020-03-16</lastmod>
+  </url>
+  <url>
+    <loc>https://pittsec.com/recordings</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2024-08-16</lastmod>
+  </url>
+  <url>
+    <loc>https://pittsec.com/about</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2019-11-22</lastmod>
+  </url>
+  <url>
+    <loc>https://pittsec.com/community</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2025-06-03</lastmod>
+  </url>
+  <url>
+    <loc>https://pittsec.com/resources</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.75</priority>
+    <lastmod>2020-09-07</lastmod>
+  </url>
+</urlset>
+

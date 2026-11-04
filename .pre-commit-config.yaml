@@ -1,0 +1,39 @@
+---
+# site/ is the frozen Squarespace snapshot, not source; leave its bytes alone
+exclude: ^site/
+repos:
+ - repo: https://github.com/astral-sh/ruff-pre-commit
+   rev: 25bcf95026b96e2dd3c0aec3090c3d6ef6ca2e6c  # frozen: v0.17.3
+   hooks:
+     - id: ruff
+       args: [ --fix ]
+     - id: ruff-format
+ - repo: https://github.com/pre-commit/pre-commit-hooks
+   rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
+   hooks:
+    - id: check-case-conflict
+    - id: check-executables-have-shebangs
+    - id: check-json
+    - id: check-shebang-scripts-are-executable
+    - id: check-symlinks
+    - id: check-yaml
+    - id: detect-aws-credentials
+      args: ['--allow-missing-credentials']
+    - id: detect-private-key
+    - id: end-of-file-fixer
+    - id: trailing-whitespace
+ - repo: https://github.com/lycheeverse/lychee
+   rev: d119b686aba77707bb4fc2037bdce3eea0ccaee6  # frozen: nightly
+   hooks:
+     - id: lychee-docker
+       types: [markdown]
+ - repo: https://github.com/rhysd/actionlint
+   rev: 914e7df21a07ef503a81201c76d2b11c789d3fca  # frozen: v1.7.12
+   hooks:
+     - id: actionlint-docker
+ - repo: https://github.com/trufflesecurity/trufflehog
+   rev: ea68ca03c865c5f324e86e849ced20ed3cf9dbbb  # frozen: v3.99.8
+   hooks:
+     - id: trufflehog
+       # Check the past 2 commits; it's useful to make this go further back than main when running this where main and HEAD are equal
+       entry: trufflehog git file://. --since-commit origin/main~1 --no-verification --fail

@@ -1,0 +1,45 @@
+---
+# https://taskfile.dev
+
+version: '3'
+
+set:
+  - nounset
+  - errexit
+  - pipefail
+
+silent: true
+
+tasks:
+  init:
+    desc: Initialize the repo for local use; intended to be run after git clone
+    cmds:
+      - uvx pre-commit install
+
+  lint:
+    desc: Run every pre-commit hook over the whole repo
+    cmds:
+      - uvx pre-commit run --all-files
+
+  test:
+    desc: Check that site/ is self-contained (every local link resolves, nothing loads from Squarespace)
+    cmds:
+      - python3 -I scripts/check_links.py site
+
+  serve:
+    desc: Serve site/ locally with GitHub Pages-style clean URLs
+    cmds:
+      - npx --yes serve site
+
+  update:
+    desc: Update the pre-commit hooks (the weekly Update workflow opens a PR from this)
+    cmds:
+      - uvx pre-commit autoupdate --freeze
+
+  clean:
+    desc: Clean up cache files/directories and temp files
+    cmds:
+      - find {{.ROOT_DIR}} -type d -name '.task' -exec rm -rf {} +
+      - find {{.ROOT_DIR}} -type d -name '.ruff_cache' -exec rm -rf {} +
+      - find {{.ROOT_DIR}} -type d -name '__pycache__' -exec rm -rf {} +
+      - find {{.ROOT_DIR}} -type f -name '.DS_Store' -delete

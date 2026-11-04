@@ -1,0 +1,36 @@
+---
+name: Update
+
+on:
+  schedule:
+    - cron: '23 0 * * 6'
+  workflow_dispatch:
+
+defaults:
+  run:
+    shell: 'bash --noprofile --norc -Eeuo pipefail {0}'
+
+jobs:
+  update:
+    name: Update
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+    steps:
+      - name: Checkout the repository
+        uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v2
+      - name: Install Task
+        uses: arduino/setup-task@v2
+      - name: Update the repository (pre-commit hooks)
+        run: task -v update
+      - name: Create or update a pull request
+        uses: peter-evans/create-pull-request@v6
+        with:
+          title: Automated update
+          commit-message: Automated update
+          committer: Automation <automation@pittsec.com>
+          delete-branch: true
+          signoff: true
