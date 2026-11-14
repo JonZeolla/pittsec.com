@@ -3,7 +3,7 @@
 exclude: ^site/
 repos:
  - repo: https://github.com/astral-sh/ruff-pre-commit
-   rev: 25bcf95026b96e2dd3c0aec3090c3d6ef6ca2e6c  # frozen: v0.17.3
+   rev: ef6cf06c079dd6b299dfc720b0f14400c9d168e1  # frozen: v0.17.5
    hooks:
      - id: ruff
        args: [ --fix ]
@@ -23,7 +23,7 @@ repos:
     - id: end-of-file-fixer
     - id: trailing-whitespace
  - repo: https://github.com/lycheeverse/lychee
-   rev: d119b686aba77707bb4fc2037bdce3eea0ccaee6  # frozen: nightly
+   rev: f10ac2774dac100dfdbf014647487520a8ffe08d  # frozen: nightly
    hooks:
      - id: lychee-docker
        types: [markdown]
@@ -32,7 +32,7 @@ repos:
    hooks:
      - id: actionlint-docker
  - repo: https://github.com/trufflesecurity/trufflehog
-   rev: ea68ca03c865c5f324e86e849ced20ed3cf9dbbb  # frozen: v3.99.8
+   rev: 3bd2b5887eb0efb8fa18bfd1d296032924e4ffdc  # frozen: v3.99.9
    hooks:
      - id: trufflehog
        # Check the past 2 commits; it's useful to make this go further back than main when running this where main and HEAD are equal
